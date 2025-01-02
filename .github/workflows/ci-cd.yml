@@ -40,6 +40,6 @@ jobs:
 
       - name: Deploy on Server using Docker Compose
         run: |
-          ssh ubuntu@ec2-18-232-173-124.compute-1.amazonaws.com "cd /home/ubuntu/devops_todo && git pull && docker-compose pull && docker-compose up -d"
+          ssh -o StrictHostKeyChecking=no ubuntu@ec2-18-232-173-124.compute-1.amazonaws.com "cd /home/ubuntu/devops_todo && git pull && docker-compose pull && docker-compose up -d"
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
